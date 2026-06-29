@@ -6,3 +6,6 @@ cmds = ["composer install --ignore-platform-req=ext-mongodb", "npm install"]
 
 [phases.build]
 cmds = ["npm run build"]
+
+[start]
+cmd = "unset NIXPACKS_PHP_FALLBACK_PATH && node /assets/scripts/prestart.mjs /assets/nginx.template.conf /nginx.conf && (php-fpm -y /assets/php-fpm.conf & nginx -c /nginx.conf)"
