@@ -2,7 +2,7 @@
 nixPkgs = ["curl", "php83", "php83Extensions.mongodb", "php83Packages.composer", "nodejs_22"]
 
 [phases.install]
-cmds = ["composer install", "npm install"]
+cmds = ["composer install --ignore-platform-req=ext-mongodb", "npm install"]
 
 [phases.build]
 cmds = ["npm run build"]
